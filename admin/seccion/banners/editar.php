@@ -1,5 +1,5 @@
 <?php
-$ruta_login = "http://localhost/Restaurante/admin/";
+$ruta_login = "https://restaurante-php-railway-production.up.railway.app/admin/";
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
