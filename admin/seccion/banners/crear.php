@@ -20,12 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descripcion = $_POST["desc"];
     $link = $_POST["link"];
 
+    $ruta_imagenes = __DIR__ . '/../../img/';
     $fecha_imagen = new DateTime();
     $nombre_imagen = $fecha_imagen->getTimestamp() . "_" . $imagen;
     $tmp_imagen = $_FILES['imagen']['tmp_name'];
 
     if ($tmp_imagen != "") {
-        move_uploaded_file($tmp_imagen, "../../../img/" . $nombre_imagen);
+        move_uploaded_file($tmp_imagen, $ruta_imagenes . $nombre_imagen);
     }
 
     $sentencia = $conexion->prepare(" INSERT INTO banners(imagen, titulo, descripcion, link) 

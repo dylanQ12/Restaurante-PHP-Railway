@@ -61,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fecha_foto = new DateTime();
         $nombre_foto = $fecha_foto->getTimestamp() . "_" . $_FILES["foto"]["name"];
         $tmp_foto = $_FILES['foto']['tmp_name'];
-        move_uploaded_file($tmp_foto, "../../../img/colaboradores/" . $nombre_foto);
+        move_uploaded_file($tmp_foto, __DIR__ . '/../../img/' . $nombre_foto);
 
         // Eliminar la foto antigua si existe y no es la misma que la nueva.
-        if ($fotoAntigua && file_exists("../../../img/colaboradores/" . $fotoAntigua) && $fotoAntigua !== $nombre_foto) {
-            unlink("../../../img/colaboradores/" . $fotoAntigua);
+        if ($fotoAntigua && file_exists(__DIR__ . '/../../img/' . $fotoAntigua) && $fotoAntigua !== $nombre_foto) {
+            unlink(__DIR__ . '/../../img/' . $fotoAntigua);
         }
 
         // Agregar la foto al array de parámetros.

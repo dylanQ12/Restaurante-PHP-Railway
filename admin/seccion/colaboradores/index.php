@@ -43,8 +43,8 @@ if ($_GET['id'] ?? null) {
     $sentencia->execute();
     $resultado = $sentencia->fetch(PDO::FETCH_LAZY);
 
-    if ($resultado && file_exists("../../../img/colaboradores/" . $resultado['foto'])) {
-        unlink("../../../img/colaboradores/" . $resultado['foto']);
+    if ($resultado && file_exists(__DIR__ . '/../../img/' . $resultado['foto'])) {
+        unlink(__DIR__ . '/../../img/' . $resultado['foto']);
     }
 
     $sentencia = $conexion->prepare("DELETE FROM colaboradores WHERE id = :id");

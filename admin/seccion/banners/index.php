@@ -49,8 +49,8 @@ if (isset($_GET['id'] )) {
     $resultado = $sentencia->fetch(PDO::FETCH_LAZY);
 
     // Verificar si el archivo existe y eliminarlo
-    if ($resultado && file_exists("../../../img/" . $resultado['imagen'])) {
-        if (!unlink("../../../img/" . $resultado['imagen'])) {
+    if ($resultado && file_exists(__DIR__ . '/../../img/' . $resultado['imagen'])) {
+        if (!unlink(__DIR__ . '/../../img/' . $resultado['imagen'])) {
             // Manejo de error al eliminar el archivo
             echo "Error al eliminar la imagen.";
             exit;
@@ -100,7 +100,7 @@ if (isset($_GET['id'] )) {
                 $contador = ($pagina - 1) * $porPagina;
                 foreach ($resultado as $key => $value) { ?>
                     <td> <?php echo ++$contador; ?> </td>
-                    <td> <img src="../../../img/<?php echo $value['imagen']; ?>" width="80"> </td>
+                    <td> <img src="../../../img/<?php echo $value['imagen']; ?>" width="100"> </td>
                     <td> <?php echo $value['titulo']; ?> </td>
                     <td> <?php echo $value['descripcion']; ?> </td>
                     <td>

@@ -47,13 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Generar un nuevo nombre de archivo único para la nueva imagen.
         $fecha = new DateTime();
         $nombreImagen = $fecha->getTimestamp() . "_" . $_FILES["imagen"]["name"];
-        $rutaImagen = "../../../img/" . $nombreImagen;
+        $rutaImagen =  __DIR__ . '/../../img/' . $nombreImagen;
 
         // Mover la nueva imagen al directorio de imágenes.
         if (move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaImagen)) {
             // Si se ha movido la nueva imagen con éxito, eliminar la anterior.
-            if ($imagenAntigua && file_exists("../../../img/" . $imagenAntigua)) {
-                unlink("../../../img/" . $imagenAntigua);
+            if ($imagenAntigua && file_exists(  __DIR__ . '/../../img/' . $imagenAntigua)) {
+                unlink( __DIR__ . '/../../img/' . $imagenAntigua);
             }
 
             // Actualizar la ruta de la imagen en la base de datos.
