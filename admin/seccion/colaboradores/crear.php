@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $link_twitter = $_POST["link_twitter"];
     $link_instagram = $_POST["link_instagram"];
 
-    $ruta_imagenes = __DIR__ . '/../../img/';
+    $ruta_imagenes = __DIR__ . '/../../img/colaboradores/';
     $fecha_foto = new DateTime();
     $nombre_foto = $fecha_foto->getTimestamp(). "_" . $foto;
     $tmp_foto = $_FILES['foto']['tmp_name'];

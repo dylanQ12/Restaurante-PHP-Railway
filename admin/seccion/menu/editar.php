@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fotoAntigua = $consultaFoto->fetchColumn();
 
         // Si existe una foto antigua, intentar eliminarla.
-        $rutaFotoAntigua = __DIR__ . '/../../img/' . $fotoAntigua;
+        $rutaFotoAntigua = __DIR__ . '/../../img/menu/' . $fotoAntigua;
         if ($fotoAntigua && file_exists($rutaFotoAntigua)) {
             if (!unlink($rutaFotoAntigua)) {
                 // Error al eliminar el archivo
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $fecha_foto = new DateTime();
         $nombre_foto = $fecha_foto->getTimestamp() . "_" . $_FILES["foto"]["name"];
         $tmp_foto = $_FILES['foto']['tmp_name'];
-        move_uploaded_file($tmp_foto, __DIR__ . '/../../img/' . $nombre_foto);
+        move_uploaded_file($tmp_foto, __DIR__ . '/../../img/menu/' . $nombre_foto);
     } else {
         $nombre_foto = null;
     }

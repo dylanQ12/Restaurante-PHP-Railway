@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ingredientes = $_POST["ingredientes"];
     $precio = $_POST["precio"];
 
-    $ruta_imagenes = __DIR__ . '/../../img/';
+    $ruta_imagenes = __DIR__ . '/../../img/menu/';
     $fecha_foto = new DateTime();
     $nombre_foto = $fecha_foto->getTimestamp(). "_" . $foto;
     $tmp_foto = $_FILES['foto']['tmp_name'];
