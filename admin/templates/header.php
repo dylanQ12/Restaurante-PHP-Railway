@@ -1,5 +1,5 @@
 <?php
-$url_base = 'http://localhost/Restaurante/admin/';
+$url_base = 'https://restaurante-php-railway-production.up.railway.app/admin/';
 
 function isActive($current_link, $url_base)
 {
